@@ -1,31 +1,35 @@
 <template lang="html">
-  <div>
-    <h1>Account</h1>
+  <div class="row">
+    <h1>Mein Profil</h1>
     <form action="">
       <div class="form-group">
         <label for="">User</label>
-        <input type="text" class="form-control" placeholder="User">
+        <input disabled type="text" class="form-control" placeholder="User">
       </div>
       <div class="form-group">
         <label for="">Name</label>
-        <input class="form-control" type="text" name="" value="" placeholder="Nachname">
+        <input disabled class="form-control" type="text" name="" value="" placeholder="Nachname">
       </div>
       <div class="form-group">
         <label for="">Vorname</label>
-        <input class="form-control" type="text" name="" value="" placeholder="Vorname">
+        <input disabled class="form-control" type="text" name="" value="" placeholder="Vorname">
       </div>
       <button class="btn btn-default" type="submit" name="button">Speichern</button>
+      <button class="btn btn-default">Felder freischalten</button>
     </form>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      message: 'hi',
+    };
+  },
 };
 </script>
 
 <style lang="css" scoped>
-  form {
 
-  }
 </style>

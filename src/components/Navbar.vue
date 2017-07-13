@@ -1,9 +1,11 @@
 <template lang="html">
-  <div class="nav">
-    <router-link class="nav-item" v-for="link in links" :to="link.target" :key="link.id">
-      {{link.text}}
-    </router-link>
-  </div>
+  <ul class="nav nav-pills">
+    <li role="presentation" v-for="link in links" >
+      <router-link class="btn btn-primary" :to="link.target" :key="link.id">
+        {{link.text}}
+      </router-link>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -20,8 +22,8 @@ export default {
           target: '/',
         },
         {
-          text: 'Account',
-          target: '/account',
+          text: 'Mein Profil',
+          target: '/profil',
         },
 
       ],
@@ -33,17 +35,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .nav {
-    height: 50px;
-    margin-top: 1rem;
+  ul {
+    display: inline-block;
+    margin-bottom: 2rem;
   }
-  .nav-item {
-    height: 50px;
-
-    padding: 1rem;
-    text-decoration: none;
-
-    background-color: #2a4296;
-    color: white;
+  .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+      color: black;
   }
 </style>
