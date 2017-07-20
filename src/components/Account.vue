@@ -27,6 +27,11 @@ export default {
       message: 'hi',
     };
   },
+  methods: {
+    update() {
+      return this.message;
+    },
+  },
 };
 </script>
 

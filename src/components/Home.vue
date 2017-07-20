@@ -2,49 +2,58 @@
 <div class="row">
   <div class="col-sm-12 col-md-12 col-lg-12">
     <p>Hallo an welchen Projekten hast du heute gearbeitet?</p>
-
-<form action="">
-  <div class="form-group">
-    <label for="">Datum</label>
-    <input disabled type="date" class="form-control">
-  </div>
-</form>
     <form action="">
-
       <div class="form-group">
-        <label for="">Projekttitel / Aufgabe</label>
-        <input type="text" class="form-control" placeholder="BK-Strategie">
+        <label for="">Datum</label>
+        <input disabled type="date" class="form-control" :value="days">
       </div>
-      <div class="form-group">
-        <label for="">Anfangszeit</label>
-        <input type="time" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="">Endzeit</label>
-        <input type="time" class="form-control">
-      </div>
-      <button class="btn btn-default">
-        <span class="glyphicon glyphicon-play"></span>
-      </button>
-      <button class="btn btn-default">
-        <span class="glyphicon glyphicon-pause"></span>
-      </button>
-      <button class="btn btn-default">
-        <span class="glyphicon glyphicon-pencil"></span>
-      </button>
     </form>
-
-    <button class="btn btn-default">
+    <task v-for="(task,key, index) in tasks" :key="task.id" :text="task.text" :start="task.start" :end="task.end"></task>
+    <button @click="addTask()" class="btn btn-default">
       <span class="glyphicon glyphicon-plus"></span>
     </button>
   </div>
-
 </div>
 </template>
 
 <script>
+import Task from './Task';
+
+const moment = require('moment');
+
 export default {
   name: 'home',
+  data() {
+    return {
+      days: moment().format('YYYY-MM-DD'),
+      newTask: '',
+      tasks: [
+        {
+          text: 'Test',
+          start: '00:00',
+          end: '12:00',
+        },
+      ],
+    };
+  },
+  components: {
+    Task,
+  },
+  methods: {
+    addTask() {
+      this.tasks.push({
+        text: this.newTask,
+        start: moment().format('HH:mm'),
+        end: '00:00',
+      });
+    },
+    play() {
+
+    },
+    pause() {
+
+    },
+  },
 };
 </script>
 

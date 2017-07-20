@@ -26,6 +26,11 @@ export default {
   border-radius: 0px;
 }
 
+button.btn.btn-primary {
+  color: red;
+  border-radius: 0px;
+}
+
 body {
   padding-top: 2rem;
 
